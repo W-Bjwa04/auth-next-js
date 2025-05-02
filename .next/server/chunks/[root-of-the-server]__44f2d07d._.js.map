@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 60, "column": 0}, "map": {"version":3,"sources":["file:///home/user/auth-app/src/app/api/users/logout/route.ts"],"sourcesContent":["import {connect} from \"@/dbConfig/dbConfig\"\nimport User from \"@/models/userSchema\"\nimport { NextRequest,NextResponse } from \"next/server\"\nimport bcryptjs from \"bcryptjs\"\nimport jwt from \"jsonwebtoken\"\n\n\nexport  async function GET(request:NextRequest){\n\n    try {\n        const response = NextResponse.json(\n            {\n                message:\"Logout Successfull\",\n                success:true\n            }\n             )\n            // set the cookies to empty \n\n            response.cookies.set(\"token\",\"\",\n                {\n                    httpOnly:true\n                }\n            )\n\n            return response\n        \n    } catch (error:any) {\n        return NextResponse.json({\n            \"message\":error,\n            success:false\n        },{status:400})\n    }\n\n}"],"names":[],"mappings":";;;AAEA;;AAKQ,eAAe,IAAI,OAAmB;IAE1C,IAAI;QACA,MAAM,WAAW,gIAAA,CAAA,eAAY,CAAC,IAAI,CAC9B;YACI,SAAQ;YACR,SAAQ;QACZ;QAEA,4BAA4B;QAE5B,SAAS,OAAO,CAAC,GAAG,CAAC,SAAQ,IACzB;YACI,UAAS;QACb;QAGJ,OAAO;IAEf,EAAE,OAAO,OAAW;QAChB,OAAO,gIAAA,CAAA,eAAY,CAAC,IAAI,CAAC;YACrB,WAAU;YACV,SAAQ;QACZ,GAAE;YAAC,QAAO;QAAG;IACjB;AAEJ","debugId":null}}]
+}
